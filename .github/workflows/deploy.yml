@@ -6,20 +6,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       #add env file to .env.local
-      - name: Set Env Vars on Vercel Project
-        uses: dkershner6/vercel-set-env-action@v1
-        with:
-          token: ${{ secrets.VERCEL_TOKEN }}
-          teamId: ${{ secrets.VERCEL_TEAM_ID }}
-          projectName: keshop
-          envVariableKeys: MONGODB_URL,MONGODB_DB
-        env:
-          STRAPI_API: ${{ secrets.MONGODB_URL }}
-          TARGET_MONGODB_URL: preview,development,production # comma delimited, one of [production, preview, development]
-          TYPE_MONGODB_URL: encrypted # one of [plain, encrypted]
-          MONGODB_DB: ${{ secrets.MONGODB_DB }}
-          TARGET_MONGODB_DB: preview,development,production
-          TYPE_MONGODB_DB: encrypted
+      # - name: Set Env Vars on Vercel Project
+      #   uses: dkershner6/vercel-set-env-action@v1
+      #   with:
+      #     token: ${{ secrets.VERCEL_TOKEN }}
+      #     teamId: ${{ secrets.VERCEL_TEAM_ID }}
+      #     projectName: keshop
+      #     envVariableKeys: MONGODB_URL,MONGODB_DB
+      #   env:
+      #     STRAPI_API: ${{ secrets.MONGODB_URL }}
+      #     TARGET_MONGODB_URL: preview,development,production # comma delimited, one of [production, preview, development]
+      #     TYPE_MONGODB_URL: encrypted # one of [plain, encrypted]
+      #     MONGODB_DB: ${{ secrets.MONGODB_DB }}
+      #     TARGET_MONGODB_DB: preview,development,production
+      #     TYPE_MONGODB_DB: encrypted
       # deploy app to vercel
       - name: deploy site to vercel
         uses: amondnet/vercel-action@v20
